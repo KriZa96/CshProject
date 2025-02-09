@@ -33,7 +33,9 @@ Csh Seminarski je sustav koji se sastoji od tri aplikacije: Admin, Client i Test
 
 ## Pokretanje projekta
 1. **Admin aplikacija**
-    - Pokrenuti aplikaciju koristeći `dotnet run` u direktoriju admin aplikacije.
+    - Pokrenuti aplikaciju koristeći `dotnet run` u direktoriju admin aplikacije
+    Isprobano i developano u Rideru, pa se moze ui kroz IDE pokrenuti, nije isprobano na VS
 2. **Client aplikacija**
     - Pokrenuti aplikaciju koristeći `dotnet run` u direktoriju klijentske aplikacije.
+   Isprobano i developano u Rideru, pa se moze ui kroz IDE pokrenuti, nije isprobano na VS
 
