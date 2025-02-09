@@ -31,7 +31,7 @@ public class ScreenshotService
     {
         var bounds = Screen.PrimaryScreen!.Bounds;
         var bitmap = new Bitmap(bounds.Width, bounds.Height);
-        
+
         try
         {
             using var g = Graphics.FromImage(bitmap);
@@ -57,7 +57,7 @@ public class ScreenshotService
         return ms.ToArray();
     }
 
-    private static async Task SendImageAsync(HubConnection hubConnection, byte[] imageData)
+    private async Task SendImageAsync(HubConnection hubConnection, byte[] imageData)
     {
         var channel = Channel.CreateBounded<byte[]>(new BoundedChannelOptions(capacity: 10)
         {
@@ -89,6 +89,8 @@ public class ScreenshotService
         catch (Exception ex)
         {
             Console.WriteLine($"Error while sending image: {ex.Message}");
+            Console.WriteLine("Stopping screenshot service...");
+            Stop();
         }
         
     }

@@ -22,7 +22,7 @@ public class ConnectionService
             .Build();
     }
     
-    public static ConnectionService CreateConnection(string hubEndpoint = "http://localhost:5189/communication")
+    public static ConnectionService CreateConnection(string hubEndpoint = "http://localhost:5203/communication")
     {
         var connection = BuildHubConnection(hubEndpoint);
         
@@ -48,7 +48,7 @@ public class ConnectionService
         });
     }
 
-    private async Task Set_userName()
+    private async Task SetUserName()
     {
         await _hubConnection.InvokeAsync("SetUserId", _userName);
     }
@@ -64,7 +64,7 @@ public class ConnectionService
         {
             RegisterOperations();
             await _hubConnection.StartAsync();
-            await Set_userName();
+            await SetUserName();
             Console.WriteLine("Connection established.");
         } 
         catch
